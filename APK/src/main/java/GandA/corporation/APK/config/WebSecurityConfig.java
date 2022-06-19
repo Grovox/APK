@@ -54,19 +54,48 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/").anonymous()
-                .antMatchers("/index").hasAnyAuthority( "CREATEREDITOR")
+                .antMatchers("/index").hasAnyAuthority("CREATEREDITOR")
                 .antMatchers("/registration").anonymous()
-                .antMatchers( "/Land","/newLand","/saveLand","/editLand/{id}","/editLandSave/{id}","/deleteLand/{id}" ).hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/Employee","/newEmployee","/saveEmployee","/editEmployee/{id}","/editEmployeeSave/{id}","/deleteEmployee/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/PlannedProduction","/newPlannedProduction","/savePlannedProduction","/editPlannedProduction/{id}","/editPlannedProductionSave/{id}","/deletePlannedProduction/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/Product","/newProduct","/saveProduct","/editProduct/{id}","/editProductSave/{id}","/deleteProduct/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/Sale","/newSale","/saveSale","/editSale/{id}","/editSaleSave/{id}","/deleteSale/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/Procurement","/newProcurement","/saveProcurement","/editProcurement/{id}","/editProcurementSave/{id}","/deleteProcurement/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/Expenses","/newExpenses","/saveExpenses","/editExpenses/{id}","/editExpensesSave/{id}","/deleteExpenses/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/ProductionCosts","/newProductionCosts","/saveProductionCosts","/editProductionCosts/{id}","/editProductionCostsSave/{id}","/deleteProductionCosts/{id}").hasAnyAuthority("CREATEREDITOR")
-                .antMatchers("/manager","/newCompany","/saveCompany","/editCompany/{id}","/editCompanySave{id}","/addUserToCompany/{id}",
-                        "/addUserToCompanySave{idCompany}","/deleteUserToCompany/{id}","/deleteSelectUserToCompany","/deleteCompany/{id}").hasAuthority("MANAGER")
-                .antMatchers("/admin","/editUser/{id}","/editUserSave{Userid}","/editUserPassword/{id}","/editUserPasswordSave{Userid}","/deleteUser/{id}").hasAuthority("ADMIN")
+                .antMatchers("/Land", "/newLand", "/saveLand", "/editLand/{id}",
+                        "/editLandSave/{id}", "/deleteLand/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/Employee", "/newEmployee", "/saveEmployee",
+                        "/editEmployee/{id}", "/editEmployeeSave/{id}",
+                        "/deleteEmployee/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/PlannedProduction", "/newPlannedProduction",
+                        "/savePlannedProduction", "/editPlannedProduction/{id}",
+                        "/editPlannedProductionSave/{id}",
+                        "/deletePlannedProduction/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/Product", "/newProduct",
+                        "/saveProduct", "/editProduct/{id}", "/editProductSave/{id}",
+                        "/deleteProduct/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/Sale", "/newSale", "/saveSale", "/editSale/{id}"
+                        , "/editSaleSave/{id}", "/deleteSale/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/Procurement", "/newProcurement", "/saveProcurement"
+                        , "/editProcurement/{id}", "/editProcurementSave/{id}"
+                        , "/deleteProcurement/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/Expenses", "/newExpenses", "/saveExpenses", "/editExpenses/{id}"
+                        , "/editExpensesSave/{id}", "/deleteExpenses/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/ProductionCosts", "/newProductionCosts", "/saveProductionCosts"
+                        , "/editProductionCosts/{id}", "/editProductionCostsSave/{id}"
+                        , "/deleteProductionCosts/{id}").hasAnyAuthority("CREATEREDITOR")
+
+                .antMatchers("/manager", "/users", "/company", "/searchUserManager",
+                        "/moreUser/{id}", "/editUser/{id}", "/editUserSave{Userid}",
+                        "/newCompany", "/saveCompany", "/editCompany/{id}", "/editCompanySave{id}",
+                        "/addUserToCompany/{id}", "/addUserToCompanySave{idCompany}",
+                        "/deleteUserToCompany/{id}", "/deleteSelectUserToCompany",
+                        "/deleteCompany/{id}").hasAuthority("MANAGER")
+
+                .antMatchers("/admin", "/editUserActive/{id}", "/editUserPassword/{id}",
+                        "/editUserPasswordSave{Userid}", "/editUserRole/{id}",
+                        "/editUserRoleSave/{Userid}", "/deleteUser/{id}", "/searchUserAdmin").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll()
@@ -84,7 +113,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
+    public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
         return new MySimpleUrlAuthenticationSuccessHandler();
     }
 

@@ -15,17 +15,7 @@ public class Company {
 
     private String company_name;
 
-    private String INN;
-
     private boolean active;
-
-    private String type_property;
-
-    private String region;
-
-    private String area;
-
-    private String address;
 
     private String phone;
 
@@ -36,6 +26,20 @@ public class Company {
     private String main_product;
 
     private int amount_workers;
+
+    private String Code_KLADR;
+
+    private String Code_OKATO;
+
+    private String Code_OKTMO;
+
+    private String Code_USRLE;
+
+    private String KPP;
+
+    private String OGRN;
+
+    private String INN;
 
     @OneToMany(mappedBy = "companyToUser")
     private List<User> companyUser;
@@ -64,86 +68,6 @@ public class Company {
     @OneToMany(mappedBy = "companyToSale")
     private List<Sale> companySale;
 
-    public List<Sale> getCompanySale() {
-        return companySale;
-    }
-
-    public void setCompanySale(List<Sale> companySale) {
-        this.companySale = companySale;
-    }
-
-    public List<Product> getCompanyProduct() {
-        return companyProduct;
-    }
-
-    public void setCompanyProduct(List<Product> companyProduct) {
-        this.companyProduct = companyProduct;
-    }
-
-    public List<Procurement> getCompanyProcurement() {
-        return companyProcurement;
-    }
-
-    public void setCompanyProcurement(List<Procurement> companyProcurement) {
-        this.companyProcurement = companyProcurement;
-    }
-
-    public List<Expenses> getCompanyExpenses() {
-        return companyExpenses;
-    }
-
-    public void setCompanyExpenses(List<Expenses> companyExpenses) {
-        this.companyExpenses = companyExpenses;
-    }
-
-    public List<ProductionCosts> getCompanyProductionCosts() {
-        return companyProductionCosts;
-    }
-
-    public void setCompanyProductionCosts(List<ProductionCosts> companyProductionCosts) {
-        this.companyProductionCosts = companyProductionCosts;
-    }
-
-    public List<PlannedProduction> getCompanyPlannedProduction() {
-        return companyPlannedProduction;
-    }
-
-    public void setCompanyPlannedProduction(List<PlannedProduction> companyPlannedProduction) {
-        this.companyPlannedProduction = companyPlannedProduction;
-    }
-
-    public List<Employee> getCompanyEmployee() {
-        return companyEmployee;
-    }
-
-    public void setCompanyEmployee(List<Employee> companyEmployee) {
-        this.companyEmployee = companyEmployee;
-    }
-
-    public List<User> getCompanyUser() {
-        return companyUser;
-    }
-
-    public void setCompanyUser(List<User> companyUser) {
-        this.companyUser = companyUser;
-    }
-
-    public List<Land> getCompanyLand() {
-        return companyLand;
-    }
-
-    public void setCompanyLand(List<Land> companyLand) {
-        this.companyLand = companyLand;
-    }
-
-    public List<User> getUserCompany() {
-        return companyUser;
-    }
-
-    public void setUserCompany(List<User> userCompany) {
-        this.companyUser = userCompany;
-    }
-
     public Long getId() {
         return id;
     }
@@ -160,52 +84,12 @@ public class Company {
         this.company_name = company_name;
     }
 
-    public String getINN() {
-        return INN;
-    }
-
-    public void setINN(String INN) {
-        this.INN = INN;
-    }
-
     public boolean isActive() {
         return active;
     }
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public String getType_property() {
-        return type_property;
-    }
-
-    public void setType_property(String type_property) {
-        this.type_property = type_property;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPhone() {
@@ -246,5 +130,133 @@ public class Company {
 
     public void setAmount_workers(int amount_workers) {
         this.amount_workers = amount_workers;
+    }
+
+    public String getCode_KLADR() {
+        return Code_KLADR;
+    }
+
+    public void setCode_KLADR(String code_KLADR) {
+        Code_KLADR = code_KLADR;
+    }
+
+    public String getCode_OKATO() {
+        return Code_OKATO;
+    }
+
+    public void setCode_OKATO(String code_OKATO) {
+        Code_OKATO = code_OKATO;
+    }
+
+    public String getCode_OKTMO() {
+        return Code_OKTMO;
+    }
+
+    public void setCode_OKTMO(String code_OKTMO) {
+        Code_OKTMO = code_OKTMO;
+    }
+
+    public String getCode_USRLE() {
+        return Code_USRLE;
+    }
+
+    public void setCode_USRLE(String code_USRLE) {
+        Code_USRLE = code_USRLE;
+    }
+
+    public String getKPP() {
+        return KPP;
+    }
+
+    public void setKPP(String KPP) {
+        this.KPP = KPP;
+    }
+
+    public String getOGRN() {
+        return OGRN;
+    }
+
+    public void setOGRN(String OGRN) {
+        this.OGRN = OGRN;
+    }
+
+    public String getINN() {
+        return INN;
+    }
+
+    public void setINN(String INN) {
+        this.INN = INN;
+    }
+
+    public List<User> getCompanyUser() {
+        return companyUser;
+    }
+
+    public void setCompanyUser(List<User> companyUser) {
+        this.companyUser = companyUser;
+    }
+
+    public List<Land> getCompanyLand() {
+        return companyLand;
+    }
+
+    public void setCompanyLand(List<Land> companyLand) {
+        this.companyLand = companyLand;
+    }
+
+    public List<Employee> getCompanyEmployee() {
+        return companyEmployee;
+    }
+
+    public void setCompanyEmployee(List<Employee> companyEmployee) {
+        this.companyEmployee = companyEmployee;
+    }
+
+    public List<PlannedProduction> getCompanyPlannedProduction() {
+        return companyPlannedProduction;
+    }
+
+    public void setCompanyPlannedProduction(List<PlannedProduction> companyPlannedProduction) {
+        this.companyPlannedProduction = companyPlannedProduction;
+    }
+
+    public List<ProductionCosts> getCompanyProductionCosts() {
+        return companyProductionCosts;
+    }
+
+    public void setCompanyProductionCosts(List<ProductionCosts> companyProductionCosts) {
+        this.companyProductionCosts = companyProductionCosts;
+    }
+
+    public List<Expenses> getCompanyExpenses() {
+        return companyExpenses;
+    }
+
+    public void setCompanyExpenses(List<Expenses> companyExpenses) {
+        this.companyExpenses = companyExpenses;
+    }
+
+    public List<Procurement> getCompanyProcurement() {
+        return companyProcurement;
+    }
+
+    public void setCompanyProcurement(List<Procurement> companyProcurement) {
+        this.companyProcurement = companyProcurement;
+    }
+
+    public List<Product> getCompanyProduct() {
+        return companyProduct;
+    }
+
+    public void setCompanyProduct(List<Product> companyProduct) {
+        this.companyProduct = companyProduct;
+    }
+
+    public List<Sale> getCompanySale() {
+        return companySale;
+    }
+
+    public void setCompanySale(List<Sale> companySale) {
+        this.companySale = companySale;
     }
 }

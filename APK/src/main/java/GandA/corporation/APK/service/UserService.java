@@ -33,7 +33,7 @@ public class UserService{
     }
 
     public List<User> getUserToAddInCompany(){
-        return repo.getUserWhereCompanyIsNullAndRoleIsCREATEREDITOR();
+        return repo.getUserToAddInCompany();
     }
 
     public User getUserByEmail(String email){
@@ -42,6 +42,10 @@ public class UserService{
 
     public User getAuntUser(){
         return getUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+    }
+
+    public List<User> getUserToManager(){
+        return repo.getUserToManager();
     }
 
     public List<User> listAll() {
@@ -57,7 +61,7 @@ public class UserService{
     }
 
     public List<User> searchByUser(String search){
-        return repo.findByEmailOrCompanyContaining(search, search);
+        return repo.findByEmailContainingOrCompanyContaining(search, search);
     }
 
 }

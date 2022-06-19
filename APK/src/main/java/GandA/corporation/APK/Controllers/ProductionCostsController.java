@@ -42,7 +42,7 @@ public class ProductionCostsController {
             List<ProductionCosts> productionCostsList = userAunt.getCompanyToUser().getCompanyProductionCosts();
             model.addAttribute("productionCostsList", productionCostsList);
         }
-        return "ProductionCosts";
+        return "ProductionCosts/ProductionCosts";
     }
 
     @RequestMapping("/newProductionCosts")
@@ -59,7 +59,7 @@ public class ProductionCostsController {
 
         model.addAttribute("productionCosts", productionCosts);
 
-        return "new_ProductionCosts";
+        return "ProductionCosts/new_ProductionCosts";
     }
 
     @RequestMapping(value = "/saveProductionCosts", method = RequestMethod.POST)
@@ -80,7 +80,7 @@ public class ProductionCostsController {
 
     @RequestMapping("/editProductionCosts/{id}")
     public ModelAndView showEditProductionCosts(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_ProductionCosts");
+        ModelAndView mav = new ModelAndView("ProductionCosts/edit_ProductionCosts");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

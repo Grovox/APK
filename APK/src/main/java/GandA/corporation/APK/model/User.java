@@ -29,7 +29,23 @@ public class User {
 
     private String phone;
 
-    private String region;
+    private String passport;
+
+    private String SNILS;
+
+    private String INN;
+
+    private String code_KLADR;
+
+    private String DOB;
+
+    private String education;
+
+    private String profession;
+
+    private String experience_general;
+
+    private String experience_organization;
 
     private String company;
 
@@ -94,12 +110,76 @@ public class User {
         this.phone = phone;
     }
 
-    public String getRegion() {
-        return region;
+    public String getPassport() {
+        return passport;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setPassport(String passport) {
+        this.passport = passport;
+    }
+
+    public String getSNILS() {
+        return SNILS;
+    }
+
+    public void setSNILS(String SNILS) {
+        this.SNILS = SNILS;
+    }
+
+    public String getINN() {
+        return INN;
+    }
+
+    public void setINN(String INN) {
+        this.INN = INN;
+    }
+
+    public String getCode_KLADR() {
+        return code_KLADR;
+    }
+
+    public void setCode_KLADR(String code_KLADR) {
+        this.code_KLADR = code_KLADR;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public String getExperience_general() {
+        return experience_general;
+    }
+
+    public void setExperience_general(String experience_general) {
+        this.experience_general = experience_general;
+    }
+
+    public String getExperience_organization() {
+        return experience_organization;
+    }
+
+    public void setExperience_organization(String experience_organization) {
+        this.experience_organization = experience_organization;
     }
 
     public String getCompany() {

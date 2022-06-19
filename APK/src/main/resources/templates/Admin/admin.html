@@ -19,83 +19,89 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-<header>
-    <nav class="navbar navbar-light bg-light fixed-top">
+<div class="wrapper">
+    <header>
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-brand">G &amp; A</div>
+                <div>
+                    <form th:action="@{/logout}" method="post">
+                        <input class="btn btn-light" type="submit" value="Выход"/>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content " style="margin-top: 60px">
         <div class="container-fluid">
-            <div class="navbar-brand">G &amp; A</div>
-            <div>
-                <form th:action="@{/logout}" method="post">
-                    <input class="btn btn-light" type="submit" value="Выход"/>
+            <h1 class="text-center">Пользователи</h1>
+            <div class="col pt-3 pb-4">
+                <form th:action="@{/searchUserAdmin}">
+                    <div class="row"><div class="col-3"><input type="text" name="keyword" class="form-control input-style" id="keyword" th:value="${keyword}" required /></div>
+                        <div class="col-3">
+                            <input type="submit" value="Искать" class="btn btn-light" />
+
+                            <input type="button" value="Очистить" id="btnClear" class="btn btn-light" onclick="clearSearch()" />
+                        </div></div>
                 </form>
+                <script type="text/javascript">
+                    function clearSearch() {
+                        window.location = "[[@{/admin}]]";
+                    }
+                </script>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" border="1" cellpadding="10">
+                    <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Номер</th>
+                        <th scope="col">Организация</th>
+                        <th scope="col">Роль</th>
+                        <th scope="col">Активен</th>
+
+
+                        <th>Активация</th>
+                        <th>Изменить пароль</th>
+                        <th>Изменить роль</th>
+                        <th>Удалить</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-active" th:each="user : ${listUser}">
+                        <td th:text="${user.email}">Email</td>
+                        <td th:text="${user.phone}">Номер</td>
+                        <td th:text="${user.company}">Организация</td>
+                        <td th:text="${user.getRoleUser() ne null} ? ${user.getRoleUser().getName()} : 'У пользователя нет роли'">Роль</td>
+                        <td th:text="${user.isEnabled()}">Активен</td>
+
+                        <td><a class="btn btn-warning" th:href="@{'/editUserActive/' + ${user.id}}">Активация</a></td>
+                        <td><a class="btn btn-warning" th:href="@{'/editUserPassword/' + ${user.id}}">Изменить пароль</a></td>
+                        <td><a class="btn btn-warning" th:href="@{'/editUserRole/' + ${user.id}}">Изменить роль</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/deleteUser/' + ${user.id}}">Удалить</a></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </nav>
-</header>
-<main class="content " style="margin-top: 60px">
-    <div class="container-fluid">
-        <h1 class="text-center">Пользователи</h1>
-        <div class="col pt-3 pb-4">
-            <form th:action="@{/searchUser}">
-                <div class="row"><div class="col-3"><input type="text" name="keyword" class="form-control input-style" id="keyword" th:value="${keyword}" required /></div>
-                    <div class="col-3">
-                        <input type="submit" value="Искать" class="btn btn-light" />
-
-                        <input type="button" value="Очистить" id="btnClear" class="btn btn-light" onclick="clearSearch()" />
-                    </div></div>
-            </form>
-            <script type="text/javascript">
-                function clearSearch() {
-                    window.location = "[[@{/admin}]]";
-                }
-            </script>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered" border="1" cellpadding="10">
-                <thead>
-                <tr>
-                    <th scope="col">Email</th>
-                    <th scope="col">Номер</th>
-                    <th scope="col">Организация</th>
-                    <th scope="col">Роль</th>
-                    <th scope="col">Активен</th>
-
-
-                    <th>Изменить пароль</th>
-                    <th>Удалить</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="table-active" th:each="user : ${listUser}">
-                    <td th:text="${user.email}">Email</td>
-                    <td th:text="${user.phone}">Номер</td>
-                    <td th:text="${user.company}">Организация</td>
-                    <td th:text="${user.getRoleUser() ne null} ? ${user.getRoleUser().getName()} : 'У пользователя нет роли'">Роль</td>
-                    <td th:text="${user.isEnabled()}">Активен</td>
-
-                    <td><a class="btn btn-warning" th:href="@{'/editUserPassword/' + ${user.id}}">Изменить пароль</a></td>
-                    <td><a class="btn btn-danger" th:href="@{'/deleteUser/' + ${user.id}}">Удалить</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</main>
-<footer>
-    <nav class="navbar  navbar-light bg-light">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link text-secondary" href="mailto:Athander@yandex.ru">Почта: Athander@yandex.ru</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" href="https://github.com/AnastasiaUgriumova/Agro-industrial_complex">Github</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" href="tel:89997201268">телефон: 89997201268</a>
-            </li>
-        </ul>
-    </nav>
-</footer>
+    </main>
+    <footer>
+        <nav class="navbar  navbar-light bg-light">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="mailto:Athander@yandex.ru">Почта: Athander@yandex.ru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="https://github.com/AnastasiaUgriumova/Agro-industrial_complex">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="tel:89997201268">телефон: 89997201268</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
 </body>
 </html>
 

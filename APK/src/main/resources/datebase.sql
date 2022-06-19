@@ -9,34 +9,44 @@ CREATE TABLE company
 (
     company_id     int          NOT NULL AUTO_INCREMENT,
     company_name   varchar(255) NOT NULL,
-    INN            varchar(100) NOT NULL,
     active         boolean      NOT NULL,
-    type_property  varchar(100) NOT NULL,
-    region         varchar(45)  NOT NULL,
-    area           varchar(45)  NOT NULL,
-    address        varchar(45)  NOT NULL,
     phone          varchar(20)  NOT NULL,
     email          varchar(45)  NOT NULL,
-    industry       varchar(45)  NOT NULL,
-    main_product   varchar(45)  NOT NULL,
-    amount_workers int(11)      NOT NULL,
+    industry       varchar(45),
+    main_product   varchar(45),
+    amount_workers int(11),
+    Code_KLADR     varchar(100),
+    Code_OKATO     varchar(100),
+    Code_OKTMO     varchar(100),
+    Code_USRLE     varchar(100),
+    INN            varchar(100),
+    KPP            varchar(100),
+    OGRN           varchar(100),
     PRIMARY KEY (company_id)
 );
 
 CREATE TABLE users
 (
-    user_id      int         NOT NULL AUTO_INCREMENT,
-    company_id   int,
-    email        varchar(45) NOT NULL,
-    password     varchar(64) NOT NULL,
-    username     varchar(45) NOT NULL,
-    surname      varchar(45) NOT NULL,
-    patronymic   varchar(45) NOT NULL,
-    phone        varchar(20) NOT NULL,
-    region       varchar(45) NOT NULL,
-    company_name varchar(255),
-    enabled      tinyint(4) DEFAULT NULL,
-    role_id      int,
+    user_id                 int         NOT NULL AUTO_INCREMENT,
+    company_id              int,
+    email                   varchar(45) NOT NULL,
+    password                varchar(64) NOT NULL,
+    username                varchar(45) NOT NULL,
+    surname                 varchar(45) NOT NULL,
+    patronymic              varchar(45) NOT NULL,
+    phone                   varchar(20) NOT NULL,
+    passport                varchar(45),
+    SNILS                   varchar(45),
+    INN                     varchar(45),
+    code_KLADR              varchar(45),
+    DOB                     varchar(45),
+    education               varchar(255),
+    profession              varchar(255),
+    experience_general      varchar(255),
+    experience_organization varchar(255),
+    company            varchar(255),
+    enabled                 tinyint(4) DEFAULT NULL,
+    role_id                 int,
     KEY company_fk_company (company_id),
     CONSTRAINT company_fk_company FOREIGN KEY (company_id) REFERENCES company (company_id) ON DELETE CASCADE ON UPDATE CASCADE,
     KEY users_fk_role (role_id),
@@ -193,27 +203,32 @@ VALUES ('MANAGER');
 INSERT INTO roles (name)
 VALUES ('ADMIN');
 
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
 VALUES ('none1@bk.ru', 1, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'viewer', 'none',
-        'none', 'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
-VALUES ('none2@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none', 'none',
         'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
+VALUES ('none2@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none',
+        'none',
+        'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
 VALUES ('none3@bk.ru', 3, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'manager', 'none',
-        'none', 'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
+        'none', 'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
 VALUES ('none4@bk.ru', 4, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'admin', 'none', 'none',
-        'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
-VALUES ('none5@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none', 'none',
-        'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
-VALUES ('none6@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none', 'none',
-        'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
-VALUES ('none7@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none', 'none',
-        'none', 'none', '1');
-INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, region, enabled)
-VALUES ('none8@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none', 'none',
-        'none', 'none', '1');
+        'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
+VALUES ('none5@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none',
+        'none',
+        'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
+VALUES ('none6@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none',
+        'none',
+        'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
+VALUES ('none7@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none',
+        'none',
+        'none', '1');
+INSERT INTO users (email, role_id, password, username, surname, patronymic, phone, enabled)
+VALUES ('none8@bk.ru', 2, '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG', 'creatorEditor', 'none',
+        'none',
+        'none', '1');

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title> Corparation</title>
+    <link rel="shortcut icon" th:href="@{../static/images/Landing.png}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link media="all" rel="stylesheet" th:href="@{../../static/css/main.css}" type="text/css"/>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+<div class="wrapper">
+    <header>
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-brand">G &amp; A</div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Открытая статистика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">О нас</a>
+                    </li>
+                </ul>
+                <div>
+                    <a class="btn btn-light" href="/login">Вход</a>
+                    <a class="btn btn-light" href="/registration">Регистрация</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="content " style="margin-top: 60px">
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok1.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">В статье рассмотрена модель развития аграрных предприятий в нашей
+                                    стране, предложенная выдающимся экономистом-аграрником А. В. Чаяновым. Показывается
+                                    актуальность идей А. В. Чаянова для решения современных задач импортозамещения и
+                                    обеспечения продовольственной безопасности, стоящих перед отечественным сельским
+                                    хозяйством.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36188 ">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok2.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">В статье рассматривается трудовая мотивация сотрудников на предприятиях агропромышленного комплекса. Определяются основные проблемы с трудовой мотивацией персонала на предприятиях АПК, намечаются пути решения этих проблем.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36193">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok3.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Институт органического сельского хозяйства наметил прогнозы по увеличению органической продукции на мировом рынке. Сейчас его доля равна почти одному проценту. В настоящий момент увеличение органической продукции отечественного происхождения продвигается довольно низкими темпами. Такая перспектива может быть осуществлена только при эффективной поддержке государства фермерских и личных хозяйств, а также принятия нормативно – правовой базы по развитию органической продукции.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36181">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok4.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">В статье анализируются актуальные проблемы, функциональные стратегии и индуцирующие тренды агропромышленного комплекса. Делается вывод, что при последовательном продолжении политики господдержки у фермеров есть хорошие перспективы для перехода на биотехнологии и производство экологически чистой и здоровой продукции.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36191 ">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok5.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">В статье выделены и кратко проанализированы основные направления аграрной социологии в нашей стране, показано что аграрная социология сегодня только складывается. Использованы теоретические методы исследования: системный подход, сравнительно-исторический метод, а также количественные и качественные методы прикладного социологического исследования</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36183 ">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok6.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">В современных условиях ведения производственно-хозяйственной деятельности остро стоит проблема исследования производительности труда и выявления резервов ее роста. Анализ производительности труда позволяет оценить степень организации труда, обнаружить проблемы и разработать приемы их устранения.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=37544">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok7.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Будущие кадры для сельскохозяйственных предприятий в большинстве проживают в сельской местности. Поэтому важно в сельских школах создать условия для интеллектуального развития молодежи, что и является предметом исследования в данной статье. Цифровизация, создавая условия для развития «умного сельского хозяйства», несомненно, влияет на прогресс в аграрных отношениях, но основной упор должен делаться на кадровом ресурсе сельского хозяйства.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=36190 ">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img th:src="@{../../static/images/MainBlok8.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Российская Федерация обладает огромным потенциалом для развития сельскохозяйственного производства. Устойчивое развитие сельского хозяйства является основой обеспечения продовольственной безопасности страны. Стратегией устойчивого развития сельских территорий Российской Федерации на период до 2030 года обращается внимание на необходимость развития экологически ориентированного сельского хозяйства, повышающего устойчивость экосистем и обеспечивающего жизнь и деятельность людей, проживающих в сельской местности.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-light"
+                                           href="https://nbpublish.com/library_read_article.php?id=35335 ">Читать
+                                            далее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav class="navbar  navbar-light bg-light">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="mailto:Athander@yandex.ru">Почта: Athander@yandex.ru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="https://github.com/AnastasiaUgriumova/Agro-industrial_complex">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="tel:89997201268">телефон: 89997201268</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+</body>
+</html>
+
+

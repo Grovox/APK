@@ -41,4 +41,8 @@ public class CompanyService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+    public List<Company> searchByCompany(String keyword) {
+        return repo.findByCompany_nameContaining(keyword);
+    }
 }

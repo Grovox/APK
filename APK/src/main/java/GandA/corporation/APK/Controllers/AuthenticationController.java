@@ -21,12 +21,12 @@ public class AuthenticationController {
 
     @GetMapping("/")
     public String viewHomePage(Model model) {
-        return "index";
+        return "index/index";
     }
 
     @GetMapping("/index")
     public String viewHomePageLogin(Model model) {
-        return "index_login";
+        return "index/index_login";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -34,7 +34,7 @@ public class AuthenticationController {
         User user = new User();
         model.addAttribute("user", user);
 
-        return "registration";
+        return "index/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -52,6 +52,6 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public String get(Model model) {
-        return "/login";
+        return "index/login";
     }
 }

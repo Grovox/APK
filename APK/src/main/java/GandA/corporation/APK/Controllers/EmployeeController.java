@@ -41,7 +41,7 @@ public class EmployeeController {
             List<Employee> employeeList = userAunt.getCompanyToUser().getCompanyEmployee();
             model.addAttribute("employeeList", employeeList);
         }
-        return "Employee";
+        return "Employee/Employee";
     }
 
     @RequestMapping("/newEmployee")
@@ -58,7 +58,7 @@ public class EmployeeController {
 
         model.addAttribute("employee", employee);
 
-        return "new_Employee";
+        return "Employee/new_Employee";
     }
 
     @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
@@ -79,7 +79,7 @@ public class EmployeeController {
 
     @RequestMapping("/editEmployee/{id}")
     public ModelAndView showEditLand(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Employee");
+        ModelAndView mav = new ModelAndView("Employee/edit_Employee");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

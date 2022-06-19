@@ -13,12 +13,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.email = :email")
     User getUserByEmail(@Param("email") String email);
 
-    @Query("SELECT u FROM User u where u.company is null and u.roleUser.name = 'CREATEREDITOR'")
-    List<User> getUserWhereCompanyIsNullAndRoleIsCREATEREDITOR();
-
     @Query("SELECT u FROM User u WHERE u.id = :id")
     User getUserById(Long id);
 
-    List<User> findByEmailOrCompanyContaining(String email,String company);
+    @Query("SELECT u FROM User u WHERE u.roleUser.id = 1 or u.roleUser.id = 2")
+    List<User> getUserToManager();
+
+    @Query("SELECT u FROM User u WHERE u.company is null and u.roleUser.id = 2")
+    List<User> getUserToAddInCompany();
+
+    List<User> findByEmailContainingOrCompanyContaining(String email,String company);
 
 }

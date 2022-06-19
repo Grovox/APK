@@ -42,7 +42,7 @@ public class SaleController {
             List<Sale> saleList = userAunt.getCompanyToUser().getCompanySale();
             model.addAttribute("saleList", saleList);
         }
-        return "Sale";
+        return "Sale/Sale";
     }
 
     @RequestMapping("/newSale")
@@ -60,7 +60,7 @@ public class SaleController {
 
         model.addAttribute("sale", sale);
 
-        return "new_Sale";
+        return "Sale/new_Sale";
     }
 
     @RequestMapping(value = "/saveSale", method = RequestMethod.POST)
@@ -81,7 +81,7 @@ public class SaleController {
 
     @RequestMapping("/editSale/{id}")
     public ModelAndView showEditLand(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Sale");
+        ModelAndView mav = new ModelAndView("Sale/edit_Sale");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

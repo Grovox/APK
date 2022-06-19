@@ -42,7 +42,7 @@ public class PlannedProductionController {
             List<PlannedProduction> plannedProductionList = userAunt.getCompanyToUser().getCompanyPlannedProduction();
             model.addAttribute("plannedProductionList", plannedProductionList);
         }
-        return "PlannedProduction";
+        return "PlannedProduction/PlannedProduction";
     }
 
     @RequestMapping("/newPlannedProduction")
@@ -60,11 +60,11 @@ public class PlannedProductionController {
 
         model.addAttribute("plannedProduction", plannedProduction);
 
-        return "new_PlannedProduction";
+        return "PlannedProduction/new_PlannedProduction";
     }
 
     @RequestMapping(value = "/savePlannedProduction", method = RequestMethod.POST)
-    public String savePlannedProduction(@ModelAttribute("plannedProduction") PlannedProduction plannedProduction) {
+    public String savePlannedProduction(@ModelAttribute("PlannedProduction/plannedProduction") PlannedProduction plannedProduction) {
 
         if(companyService.AunHaveCompany()){
             return "error_HasNoCompany";

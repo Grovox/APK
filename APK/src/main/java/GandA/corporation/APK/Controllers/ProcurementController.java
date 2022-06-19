@@ -42,7 +42,7 @@ public class ProcurementController {
             List<Procurement> procurementList = userAunt.getCompanyToUser().getCompanyProcurement();
             model.addAttribute("procurementList", procurementList);
         }
-        return "Procurement";
+        return "Procurement/Procurement";
     }
 
     @RequestMapping("/newProcurement")
@@ -60,7 +60,7 @@ public class ProcurementController {
 
         model.addAttribute("procurement", procurement);
 
-        return "new_Procurement";
+        return "Procurement/new_Procurement";
     }
 
     @RequestMapping(value = "/saveProcurement", method = RequestMethod.POST)
@@ -81,7 +81,7 @@ public class ProcurementController {
 
     @RequestMapping("/editProcurement/{id}")
     public ModelAndView showEditProcurement(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Procurement");
+        ModelAndView mav = new ModelAndView("Procurement/edit_Procurement");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

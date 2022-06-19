@@ -46,7 +46,7 @@ public class ProductController {
             List<Product> productList = userAunt.getCompanyToUser().getCompanyProduct();
             model.addAttribute("productList", productList);
         }
-        return "Product";
+        return "Product/Product";
     }
 
     @RequestMapping("/newProduct")
@@ -67,7 +67,7 @@ public class ProductController {
         model.addAttribute("listPlannedProduction", listPlannedProduction);
         model.addAttribute("product", product);
 
-        return "new_Product";
+        return "Product/new_Product";
     }
 
     @RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
@@ -81,8 +81,6 @@ public class ProductController {
         }
         User userAunt = userService.getAuntUser();
         product.setCompanyToProduct(userAunt.getCompanyToUser());
-        //product.setPlannedProductionToProduct(plannedProductionService.get(id));
-        //product.setId(null);
         productService.save(product);
 
         return "redirect:/Product";
@@ -90,7 +88,7 @@ public class ProductController {
 
     @RequestMapping("/editProduct/{id}")
     public ModelAndView showEditProduct(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Product");
+        ModelAndView mav = new ModelAndView("Product/edit_Product");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

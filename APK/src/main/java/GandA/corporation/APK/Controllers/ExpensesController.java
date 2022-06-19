@@ -42,7 +42,7 @@ public class ExpensesController {
             List<Expenses> expensesList = userAunt.getCompanyToUser().getCompanyExpenses();
             model.addAttribute("expensesList", expensesList);
         }
-        return "Expenses";
+        return "Expenses/Expenses";
     }
 
     @RequestMapping("/newExpenses")
@@ -60,7 +60,7 @@ public class ExpensesController {
 
         model.addAttribute("expenses", expenses);
 
-        return "new_Expenses";
+        return "Expenses/new_Expenses";
     }
 
     @RequestMapping(value = "/saveExpenses", method = RequestMethod.POST)
@@ -81,7 +81,7 @@ public class ExpensesController {
 
     @RequestMapping("/editExpenses/{id}")
     public ModelAndView showEditExpenses(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Expenses");
+        ModelAndView mav = new ModelAndView("Expenses/edit_Expenses");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");

@@ -41,7 +41,7 @@ public class LandController {
             List<Land> landList = userAunt.getCompanyToUser().getCompanyLand();
             model.addAttribute("landList", landList);
         }
-        return "Land";
+        return "Land/Land";
     }
 
     @RequestMapping("/newLand")
@@ -59,7 +59,7 @@ public class LandController {
 
         model.addAttribute("land", land);
 
-        return "new_Land";
+        return "Land/new_Land";
     }
 
     @RequestMapping(value = "/saveLand", method = RequestMethod.POST)
@@ -80,7 +80,7 @@ public class LandController {
 
     @RequestMapping("/editLand/{id}")
     public ModelAndView showEditLand(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_Land");
+        ModelAndView mav = new ModelAndView("Land/edit_Land");
 
         if(companyService.AunHaveCompany()){
             mav = new ModelAndView("error_HasNoCompany");
