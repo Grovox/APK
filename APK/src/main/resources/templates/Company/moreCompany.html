@@ -44,7 +44,7 @@
                             <tbody th:object="${company}">
                             <tr class="table-active">
                                 <td>Название предприятия:</td>
-                                <td th:text="*{name ne null} ? *{company_name} : ' '"></td>
+                                <td th:text="*{company_name ne null} ? *{company_name} : ' '"></td>
                             </tr>
                             <tr class="table-active">
                                 <td>Признак активности организации:</td>

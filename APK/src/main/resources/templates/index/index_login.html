@@ -89,6 +89,59 @@
                         </div>
                     </div>
                 </div>
+                <div sec:authorize="hasAnyAuthority('VIEWER')">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbarVIEWER"
+                            aria-controls="offcanvasNavbarVIEWER">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarVIEWER"
+                         aria-labelledby="offcanvasNavbarLabelVIEWER">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabelVIEWER">Меню</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Land">Земельные участки</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/showEmployee">Работники</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/PlannedProduction">Планируемое производство</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Product">Продукты</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Procurement">Закупки</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Expenses">Расходы</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/ProductionCosts">Затраты на производство</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Sale">Продажи</a>
+                                </li>
+                                <li class="nav-item m-4">
+                                    <div class="row">
+                                        <div class=" col text-center">
+                                            <form th:action="@{/logout}" method="post">
+                                                <input class="btn btn-light" type="submit" value="Выход"/>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>

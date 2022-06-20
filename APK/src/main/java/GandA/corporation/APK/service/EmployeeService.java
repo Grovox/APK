@@ -27,4 +27,8 @@ public class EmployeeService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+    public List<Employee> searchByEmployeeToViewer(String companyName, String surname, String speciality, String email) {
+        return repo.searchByEmployeeToViewer(companyName, surname, speciality, email);
+    }
 }

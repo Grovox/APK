@@ -54,8 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/").anonymous()
-                .antMatchers("/index").hasAnyAuthority("CREATEREDITOR")
+                .antMatchers("/index").hasAnyAuthority("CREATEREDITOR","VIEWER")
                 .antMatchers("/registration").anonymous()
+                .antMatchers("/showEmployee").hasAnyAuthority("VIEWER")
                 .antMatchers("/Land", "/newLand", "/saveLand", "/editLand/{id}",
                         "/editLandSave/{id}", "/deleteLand/{id}").hasAnyAuthority("CREATEREDITOR")
 
