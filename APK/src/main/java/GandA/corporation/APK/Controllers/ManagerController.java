@@ -161,9 +161,9 @@ public class ManagerController {
         companySave.setCode_KLADR(company.getCode_KLADR());
         companySave.setCode_OKATO(company.getCode_OKATO());
         companySave.setCode_OKTMO(company.getCode_OKTMO());
-        companySave.setCode_USRLE(company.getCode_USRLE());
+        companySave.setCode_OKOGY(company.getCode_OKOGY());
         companySave.setINN(company.getINN());
-        companySave.setKPP(company.getKPP());
+        companySave.setOKPO(company.getOKPO());
         companySave.setOGRN(company.getOGRN());
         List<User> users = companySave.getCompanyUser();
         for (User user : users)

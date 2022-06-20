@@ -33,9 +33,9 @@ public class Company {
 
     private String Code_OKTMO;
 
-    private String Code_USRLE;
+    private String Code_OKOGY;
 
-    private String KPP;
+    private String OKPO;
 
     private String OGRN;
 
@@ -156,20 +156,20 @@ public class Company {
         Code_OKTMO = code_OKTMO;
     }
 
-    public String getCode_USRLE() {
-        return Code_USRLE;
+    public String getCode_OKOGY() {
+        return Code_OKOGY;
     }
 
-    public void setCode_USRLE(String code_USRLE) {
-        Code_USRLE = code_USRLE;
+    public void setCode_OKOGY(String code_OKOGY) {
+        Code_OKOGY = code_OKOGY;
     }
 
-    public String getKPP() {
-        return KPP;
+    public String getOKPO() {
+        return OKPO;
     }
 
-    public void setKPP(String KPP) {
-        this.KPP = KPP;
+    public void setOKPO(String OKPO) {
+        this.OKPO = OKPO;
     }
 
     public String getOGRN() {
