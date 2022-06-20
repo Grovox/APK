@@ -27,4 +27,8 @@ public class ProductService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+    public List<Product> searchByProductToViewer(String companyName, String productName) {
+        return repo.searchByProductToViewer(companyName,productName);
+    }
 }

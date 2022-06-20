@@ -113,7 +113,33 @@ public class ViewerController {
         List<Product> productList = productService.listAll();
         model.addAttribute("productList",productList);
 
-        return "Viewer/showProduct";
+        return "Product/Product";
+    }
+
+    @RequestMapping("/searchProductViewer")
+    public String searchProductViewer(Model model, @Param("companyName") String companyName, @Param("productName") String productName) {
+        List<Product> productList = productService.searchByProductToViewer(companyName, productName);
+
+        int sumAmount = 0;
+        int sumProduction_cost = 0;
+        int sumAmountCost_price = 0;
+
+        for(Product product : productList) {
+            sumAmount += product.getAmount();
+            sumProduction_cost += product.getProduction_cost();
+            sumAmountCost_price += product.getCost_price();
+        }
+
+        model.addAttribute("sumAmount", sumAmount);
+        model.addAttribute("sumProduction_cost", sumProduction_cost);
+        model.addAttribute("sumAmountCost_price", sumAmountCost_price);
+
+        model.addAttribute("productList", productList);
+
+        model.addAttribute("companyName", companyName);
+        model.addAttribute("productName", productName);
+
+        return "Product/Product";
     }
 
     @RequestMapping("/showSale")

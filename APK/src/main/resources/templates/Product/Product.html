@@ -36,15 +36,27 @@
     <main class="content " style="margin-top: 60px">
         <div class="container-fluid">
             <h1 class="text-center">Продукт</h1>
-            <div>
+            <div sec:authorize="hasAnyAuthority('CREATEREDITOR')">
                 <a class="btn btn-primary" href="/newProduct">Дабавить новый продукт</a>
             </div>
 
-            <br/><br/>
+            <form th:action="@{/searchProductViewer}">
+                <div sec:authorize="hasAnyAuthority('VIEWER')" class="row">
+                    <div class="col-3 pb-3">
+                        <input type="submit" value="Искать" class="btn btn-light" />
+                        <input type="button" value="Очистить" id="btnClear" class="btn btn-light" onclick="clearSearch()" />
+                        <script type="text/javascript">
+                            function clearSearch() {
+                                window.location = "[[@{/showProduct}]]";
+                            }
+                        </script>
+                    </div>
+                </div>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" border="1" cellpadding="10">
                     <thead>
                     <tr>
+                        <th sec:authorize="hasAnyAuthority('VIEWER')" scope="col">Компания</th>
                         <th scope="col">Продукт</th>
                         <th scope="col">Дата производства</th>
                         <th scope="col">Единица измерения</th>
@@ -52,13 +64,29 @@
                         <th scope="col">Расход на производство</th>
                         <th scope="col">Себестоимость</th>
 
-                        <th>Изменить</th>
-                        <th>Удалить</th>
+                        <div sec:authorize="hasAnyAuthority('CREATEREDITOR')">
+                            <th>Изменить</th>
+                            <th>Удалить</th>
+                        </div>
 
                     </tr>
                     </thead>
                     <tbody>
+                    <tr sec:authorize="hasAnyAuthority('VIEWER')">
+                        <td>
+                            <input type="text" name="companyName" class="form-control input-style" id="companyName" th:value="${companyName}"/>
+                        </td>
+                        <td>
+                            <input type="text" name="productName" class="form-control input-style" id="productName" th:value="${productName}"/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                     <tr class="table-active" th:each="product : ${productList}">
+                        <td sec:authorize="hasAnyAuthority('VIEWER')" th:text="${product.getCompanyToProduct().getCompany_name()}"></td>
                         <td th:text="${product.product_type}">Продукт</td>
                         <td th:text="${product.date_manufacture}">Дата производства</td>
                         <td th:text="${product.unit}">Единица измерения</td>
@@ -67,12 +95,24 @@
                         <td th:text="${product.cost_price}">Себестоимость</td>
 
 
-                        <td><a class="btn btn-warning" th:href="@{'/editProduct/' + ${product.id}}">Изменить</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/deleteProduct/' + ${product.id}}">Удалить</a></td>
+                        <div sec:authorize="hasAnyAuthority('CREATEREDITOR')">
+                            <td><a class="btn btn-warning" th:href="@{'/editProduct/' + ${product.id}}">Изменить</a></td>
+                            <td><a class="btn btn-danger" th:href="@{'/deleteProduct/' + ${product.id}}">Удалить</a></td>
+                        </div>
+                    </tr>
+                    <tr sec:authorize="hasAnyAuthority('VIEWER')">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Сумма столбца:</td>
+                        <td th:text="${sumAmount}"></td>
+                        <td th:text="${sumProduction_cost}"></td>
+                        <td th:text="${sumAmountCost_price}"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
+            </form>
         </div>
     </main>
     <footer>
